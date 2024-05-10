@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 411374840}
   - component: {fileID: 411374839}
   - component: {fileID: 411374842}
+  - component: {fileID: 411374843}
   m_Layer: 5
   m_Name: Stage1
   m_TagString: Untagged
@@ -357,11 +358,11 @@ MonoBehaviour:
       - m_Target: {fileID: 411374842}
         m_TargetAssemblyTypeName: StgeSelect, Assembly-CSharp
         m_MethodName: Change_Button
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -405,6 +406,18 @@ CanvasRenderer:
   m_GameObject: {fileID: 411374837}
   m_CullTransparentMesh: 1
 --- !u!114 &411374842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411374837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7bf732545ded7446b1285fc042c7031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &411374843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -932,12 +945,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1908681967}
         m_TargetAssemblyTypeName: StgeSelect, Assembly-CSharp
-        m_MethodName: Change_Button2
-        m_Mode: 1
+        m_MethodName: Change_Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

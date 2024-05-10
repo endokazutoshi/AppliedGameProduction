@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class StgeSelect : MonoBehaviour
 {
-   public void Change_Button()
+   public void Change_Button(int StageNumber)
    {
-        SceneManager.LoadScene("Stage1");
-   }
-   public void Change_Button2()
-   {
-        SceneManager.LoadScene("Stage2");
+        string SceneName = "";
+
+        switch(StageNumber)
+        {
+            case 1:
+                SceneName = "Stage1";
+                break;
+            case 2:
+                SceneName = "Stage2";
+                break;
+        }
+
+        SceneManager.LoadScene(SceneName);
    }
 }
