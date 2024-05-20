@@ -12,7 +12,7 @@ public class StgeSelect : MonoBehaviour
         switch(StageNumber)
         {
             case 1:
-                SceneName = "Stage1";
+                SceneName = "SampleScene";
                 break;
             case 2:
                 SceneName = "Stage2";
