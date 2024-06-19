@@ -623,6 +623,7 @@ GameObject:
   - component: {fileID: 980308329}
   - component: {fileID: 980308331}
   - component: {fileID: 980308330}
+  - component: {fileID: 980308332}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -682,7 +683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B9\u30BF\u30FC\u30C8"
+  m_Text: PlayGame
 --- !u!222 &980308331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -691,6 +692,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980308328}
   m_CullTransparentMesh: 1
+--- !u!114 &980308332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980308328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1490dc9910b0a104986863ad09a11409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &2017745697
 GameObject:
   m_ObjectHideFlags: 0
