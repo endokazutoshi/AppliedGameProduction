@@ -5,67 +5,72 @@ using UnityEngine.SceneManagement;
 
 public class FadeManager : MonoBehaviour
 {
-    public string NextSceneName;
+    public string nextSceneName; // 遷移先のシーン名をInspectorから設定
 
     private Image fadeImage;
 
-    private void Update()
+    void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        // Imageコンポーネントを取得
+        fadeImage = GetComponent<Image>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(FadeOutAndLoadScene());
+            StartCoroutine(StartFadeSequence());
         }
     }
 
-    IEnumerator FadeOutAndLoadScene()
+    IEnumerator StartFadeSequence()
     {
-        //2秒待つ
+        // 2秒待つ
         yield return new WaitForSeconds(2.0f);
 
-        //フェードイン開始
-        yield return StartCoroutine(Color_FadeIn());
-
-        //フェードアウト開始
+        // フェードアウトを開始
         yield return StartCoroutine(Color_FadeOut());
 
-        //シーンをロード
-        SceneManager.LoadScene(NextSceneName);
-    }
+        // シーンをロード
+        SceneManager.LoadScene(nextSceneName);
 
-    IEnumerator Color_FadeIn()
-    {
-        fadeImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-
-        const float fade_time = 2.0f;
-        const int loop_count = 50;
-        float wait_time = fade_time / loop_count;
-        float alpha_interval = 1.0f / loop_count;
-
-        for(float alpha = 0.0f; alpha >= 1.0f; alpha -= alpha_interval)
-        {
-            yield return new WaitForSeconds(wait_time);
-            Color new_color = fadeImage.color;
-            new_color.a = alpha;
-            fadeImage.color = new_color;
-        }
-
+        // フェードインを開始
+        yield return StartCoroutine(Color_FadeIn());
     }
 
     IEnumerator Color_FadeOut()
     {
-        fadeImage.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        if (fadeImage == null) yield break;
 
-        const float fade_time = 2.0f;
-        const int loop_count = 50;
-        float wait_time = fade_time / loop_count;
-        float alpha_interval = 1.0f / loop_count;
+        fadeImage.color = new Color(0.0f, 0.0f, 0.0f, 0.0f); // 黒色、不透明
 
-        for(float alpha = 1.0f; alpha <= 0.0f; alpha += alpha_interval)
+        const float fade_time = 2.0f; // フェードアウトにかかる時間
+        float elapsed_time = 0f;
+
+        while (elapsed_time < fade_time)
         {
-            yield return new WaitForSeconds(wait_time);
-            Color new_color = fadeImage.color;
-            new_color.a = alpha;
-            fadeImage.color = new_color;
+            elapsed_time += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsed_time / fade_time); // 1から0までの範囲で計算
+            fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+            yield return null; // 次のフレームまで待機
+        }
+    }
+
+    IEnumerator Color_FadeIn()
+    {
+        if (fadeImage == null) yield break;
+
+        fadeImage.color = new Color(0.0f, 0.0f, 0.0f, 1.0f); // 黒色、透明
+
+        const float fade_time = 2.0f; // フェードインにかかる時間
+        float elapsed_time = 0f;
+
+        while (elapsed_time < fade_time)
+        {
+            elapsed_time += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1.0f - (elapsed_time / fade_time)); // 0から1までの範囲で計算
+            fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+            yield return null; // 次のフレームまで待機
         }
     }
 }
