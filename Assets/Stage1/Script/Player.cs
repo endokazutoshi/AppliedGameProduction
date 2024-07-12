@@ -87,13 +87,12 @@ public class Player : MonoBehaviour
                 {
                     // レバーがオンの場合、タイルの変更を行う
                     ChangeTileAfterLeverOn();
-                    DisplayLeverPrefab(leverOnPrefab);
+
                 }
                 else
                 {
                     ChangeTileAfterLeverOff();
 
-                    DisplayLeverPrefab(leverOffPrefab);
                 }
 
                 return true;
@@ -211,7 +210,7 @@ public class Player : MonoBehaviour
             if (Ground.map[targetY, targetX] == 4)
             {
                 Debug.Log("A player reached the death tile. Loading DeadScene...");
-                SceneManager.LoadScene("DeadScene");
+                SceneManager.LoadScene("GameOverScene");
             }
         }
     }
@@ -342,40 +341,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    //private void ChangeTileAfterLeverOn()//レバーがOnだった場合指定したTileTypeを変更する関数
-    //{
-    //    Ground ground = FindObjectOfType<Ground>();
-    //    if (ground != null && LeverPositionChange.Length == LeverNewTileType.Length)
-    //    {
-    //        for (int i = 0; i < LeverPositionChange.Length; i++)
-    //        {
-    //            int x = (int)LeverPositionChange[i].x;
-    //            int y = (int)LeverPositionChange[i].y;
-    //            int newType = LeverNewTileType[i];
-    //            Debug.Log("これはレバーがonの時に使われるんだけどなぁ");
-    //            ground.UpdateTileType(x, y, newType);
-    //        }
-    //    }
-    //}
-
-    //private void ChangeTileAfterLeverOff() // レバーがOFFの場合にタイルを元に戻す関数
-    //{
-    //    Ground ground = FindObjectOfType<Ground>();
-    //    if (ground != null && LeverPositionChange.Length == LeverOriginalTileType.Length)
-    //    {
-    //        for (int i = 0; i < LeverPositionChange.Length; i++)
-    //        {
-    //            int x = (int)LeverPositionChange[i].x;
-    //            int y = (int)LeverPositionChange[i].y;
-    //            int originalType = LeverOriginalTileType[i];
-    //            Debug.Log("これはレバーがoffの時に使われるんだけどなぁ");
-    //            ground.UpdateTileType(x, y, originalType);
-    //        }
-    //    }
-    //}
-
-
     private void ChangeTileAfterPasswordCorrect()//暗証番号が入力されたら指定したTileTypeを変更する関数
     {
         Ground ground = FindObjectOfType<Ground>();
@@ -402,12 +367,10 @@ public class Player : MonoBehaviour
                 int x = (int)LeverPositionChange[i].x;
                 int y = (int)LeverPositionChange[i].y;
                 int newType = LeverNewTileType[i];
-                Debug.Log("これはレバーがonの時に使われるんだけどなぁ");
                 ground.UpdateTileType(x, y, newType);
             }
         }
-        // レバーがオンのPrefabを表示
-        DisplayLeverPrefab(leverOnPrefab);
+        ground.DisplayLeverPrefab(true); // レバーがオンのPrefabを表示
     }
 
     private void ChangeTileAfterLeverOff()
@@ -420,25 +383,10 @@ public class Player : MonoBehaviour
                 int x = (int)LeverPositionChange[i].x;
                 int y = (int)LeverPositionChange[i].y;
                 int originalType = LeverOriginalTileType[i];
-                Debug.Log("これはレバーがoffの時に使われるんだけどなぁ");
                 ground.UpdateTileType(x, y, originalType);
             }
         }
-        // レバーがオフのPrefabを表示
-        DisplayLeverPrefab(leverOffPrefab);
-    }
-
-    private void DisplayLeverPrefab(GameObject prefab)
-    {
-        if (currentLeverPrefab != null)
-        {
-            Destroy(currentLeverPrefab); // 現在のPrefabを削除
-        }
-
-        if (prefab != null)
-        {
-            currentLeverPrefab = Instantiate(prefab, transform.position, Quaternion.identity); // 新しいPrefabを表示
-        }
+        ground.DisplayLeverPrefab(false); // レバーがオフのPrefabを表示
     }
 
 }

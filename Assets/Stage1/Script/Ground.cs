@@ -111,7 +111,7 @@ public class Ground : MonoBehaviour
                     leverInstance = Instantiate(_leverPrefabOff, new Vector3(length, width, 0), Quaternion.identity, transform);
                     // ここで leverInstance を適切に処理するための追加の設定を行う可能性があります
                 }
-                if(tileType == 8)
+                if (tileType == 8)
                 {
                     leverInstance = Instantiate(_leverPrefabOn, new Vector3(length, width, 0), Quaternion.identity, transform);
                 }
@@ -197,7 +197,85 @@ public class Ground : MonoBehaviour
         }
     }
 
+    public void UpdateTileTypeLeverOn(int x, int y, int newTileType)
+    {
+        // xとyが有効な範囲内にあることを確認
+        if (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight)
+        {
+            map[y, x] = newTileType; // マップを新しいタイルタイプで更新する
 
+            // タイルタイプに基づいて対応するプレハブをインスタンス化する
+            switch (newTileType)
+            {
+                case 0: // 壁
+                    Instantiate(wallPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 1: // 床
+                    Instantiate(floorPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 2: // ゴール
+                    Instantiate(goalPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 3: //暗号
+                    Instantiate(passWorldPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 4: //死亡
+                    Instantiate(deadPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 5: //スイッチ
+                    Instantiate(switchPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 6: //移動キーぐちゃぐちゃ
+                    Instantiate(moveRandomPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                    // 必要に応じて他のタイルタイプに対する処理を追加する
+            }
+        }
+        else
+        {
+            Debug.LogError("タイルタイプの更新に無効な位置: (" + x + ", " + y + ")");
+        }
+    }
+
+    public void UpdateTileTypeLeverOff(int x, int y, int newTileType)
+    {
+        // xとyが有効な範囲内にあることを確認
+        if (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight)
+        {
+            map[y, x] = newTileType; // マップを新しいタイルタイプで更新する
+
+            // タイルタイプに基づいて対応するプレハブをインスタンス化する
+            switch (newTileType)
+            {
+                case 0: // 壁
+                    Instantiate(wallPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 1: // 床
+                    Instantiate(floorPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 2: // ゴール
+                    Instantiate(goalPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 3: //暗号
+                    Instantiate(passWorldPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 4: //死亡
+                    Instantiate(deadPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 5: //スイッチ
+                    Instantiate(switchPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                case 6: //移動キーぐちゃぐちゃ
+                    Instantiate(moveRandomPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                    break;
+                    // 必要に応じて他のタイルタイプに対する処理を追加する
+            }
+        }
+        else
+        {
+            Debug.LogError("タイルタイプの更新に無効な位置: (" + x + ", " + y + ")");
+        }
+    }
 
 
     // 指定された位置の周囲でスペースキーが押されたかどうかをチェックするメソッド
@@ -273,4 +351,32 @@ public class Ground : MonoBehaviour
 
         // 他のゲームオブジェクトに対する影響をここで処理することもできます
     }
+
+    [SerializeField] private GameObject leverOnPrefab; // レバーがオンのときのPrefab
+    [SerializeField] private GameObject leverOffPrefab; // レバーがオフのときのPrefab
+    private GameObject currentLeverPrefab; // 現在表示されているレバーのPrefab
+
+    public void DisplayLeverPrefab(bool isLeverOn)
+    {
+        if (currentLeverPrefab != null)
+        {
+            currentLeverPrefab.SetActive(false); // 現在のPrefabを非表示にする
+        }
+
+        if (isLeverOn)
+        {
+            currentLeverPrefab = leverOnPrefab;
+        }
+        else
+        {
+            currentLeverPrefab = leverOffPrefab;
+        }
+
+        if (currentLeverPrefab != null)
+        {
+            currentLeverPrefab.SetActive(true); // 新しいPrefabを表示する
+        }
+    }
+
+
 }

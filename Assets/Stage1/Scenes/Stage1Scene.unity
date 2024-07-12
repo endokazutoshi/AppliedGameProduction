@@ -649,7 +649,7 @@ MonoBehaviour:
   _spawnPositionY: 6
   _tileTypeToSpawn: 0
   wallPrefab: {fileID: 4931338438274719726, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
-  floorPrefab: {fileID: 2032788471}
+  floorPrefab: {fileID: 6358039462078637500, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
   goalPrefab: {fileID: 384434184}
   passWorldPrefab: {fileID: 97002077}
   deadPrefab: {fileID: 2146897608}
@@ -657,6 +657,8 @@ MonoBehaviour:
   moveRandomPrefab: {fileID: 0}
   _length: 23
   _width: 10
+  leverOnPrefab: {fileID: 0}
+  leverOffPrefab: {fileID: 0}
 --- !u!4 &1430184508
 Transform:
   m_ObjectHideFlags: 0
@@ -939,7 +941,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  targetPos: {x: 0, y: 0}
   initialPosition: {x: 2, y: 2}
+  minPosition: {x: 0, y: 0}
+  maxPosition: {x: 22, y: 9}
+  currentKeyCode: 0
+  isKeyDown: 0
+  keyDownTime: 0
 --- !u!114 &1646936447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2155d40657ff584a8cb96f272d29749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalReached: 0
+  playerMovement: {fileID: 0}
 --- !u!114 &1646936448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,6 +974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efcc02bc517aafd4b874d966cad8be9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFrozen: 0
+  tileNumber: 0
 --- !u!1 &1657941402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2155d40657ff584a8cb96f272d29749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalReached: 0
+  playerMovement: {fileID: 0}
 --- !u!114 &1657941407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1113,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  targetPos: {x: 0, y: 0}
   initialPosition: {x: 13, y: 7}
+  minPosition: {x: 0, y: 0}
+  maxPosition: {x: 22, y: 9}
+  currentKeyCode: 0
+  isKeyDown: 0
+  keyDownTime: 0
 --- !u!114 &1657941408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,6 +1132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efcc02bc517aafd4b874d966cad8be9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFrozen: 0
+  tileNumber: 0
 --- !u!1 &1666398955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3302078959319034631, guid: bf0c7ff1515e1674b82ce21e2c0eb112, type: 3}
@@ -1174,11 +1196,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32312d154953c7c469344435c63db9a5, type: 3}
---- !u!1 &2032788471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6358039462078637500, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
-  m_PrefabInstance: {fileID: 1530350117}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2139573152 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2881777464863961440, guid: 284b1e98df995f34a8f14419e4f8d68e, type: 3}
