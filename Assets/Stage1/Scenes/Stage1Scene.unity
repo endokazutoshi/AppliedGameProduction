@@ -596,6 +596,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b98a25c080b9d449a419b8c8350a5ac, type: 3}
+--- !u!1 &1170050017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6358039462078637500, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
+  m_PrefabInstance: {fileID: 1530350117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1416694586 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4496663639413461297, guid: 5b98a25c080b9d449a419b8c8350a5ac, type: 3}
@@ -632,7 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallPrefab: {fileID: 4931338438274719726, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
-  _tilePrefab: {fileID: 6358039462078637500, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
+  _tilePrefab: {fileID: 1170050017}
   _goalPrefabs:
   - {fileID: 384434184}
   _PIN: {fileID: 641368354640692434, guid: 75073e8c568e3a7419e1503c5787f36d, type: 3}
@@ -700,7 +705,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 514366033740452211, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
       propertyPath: m_SortingOrder
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813391106938563678, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,9 +832,6 @@ GameObject:
   - component: {fileID: 1646936445}
   - component: {fileID: 1646936444}
   - component: {fileID: 1646936443}
-  - component: {fileID: 1646936446}
-  - component: {fileID: 1646936447}
-  - component: {fileID: 1646936448}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player1
@@ -856,9 +858,13 @@ MonoBehaviour:
   - {x: 1, y: 8}
   passwordNewTileType: 0200000000000000
   LeverPositionChange:
-  - {x: 1, y: 1}
-  LeverNewTileType: 02000000
-  LeverOriginalTileType: 00000000
+  - {x: 2, y: 4}
+  - {x: 3, y: 4}
+  - {x: 4, y: 4}
+  - {x: 10, y: 8}
+  - {x: 1, y: 7}
+  LeverNewTileType: 0000000000000000000000000000000001000000
+  LeverOriginalTileType: 
   leverOnPrefab: {fileID: 0}
   leverOffPrefab: {fileID: 0}
 --- !u!212 &1646936444
@@ -928,54 +934,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1646936446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646936442}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6cd7270f5bc3c4b8f6397a2e4f2708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  targetPos: {x: 0, y: 0}
-  initialPosition: {x: 2, y: 2}
-  minPosition: {x: 0, y: 0}
-  maxPosition: {x: 22, y: 9}
-  currentKeyCode: 0
-  isKeyDown: 0
-  keyDownTime: 0
---- !u!114 &1646936447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646936442}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2155d40657ff584a8cb96f272d29749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalReached: 0
-  playerMovement: {fileID: 0}
---- !u!114 &1646936448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646936442}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efcc02bc517aafd4b874d966cad8be9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFrozen: 0
-  tileNumber: 0
 --- !u!1 &1657941402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,8 +1056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2155d40657ff584a8cb96f272d29749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalReached: 0
-  playerMovement: {fileID: 0}
 --- !u!114 &1657941407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,14 +1068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6cd7270f5bc3c4b8f6397a2e4f2708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  targetPos: {x: 0, y: 0}
-  initialPosition: {x: 13, y: 7}
-  minPosition: {x: 0, y: 0}
-  maxPosition: {x: 22, y: 9}
-  currentKeyCode: 0
-  isKeyDown: 0
-  keyDownTime: 0
 --- !u!114 &1657941408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,8 +1080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efcc02bc517aafd4b874d966cad8be9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFrozen: 0
-  tileNumber: 0
 --- !u!1 &1666398955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3302078959319034631, guid: bf0c7ff1515e1674b82ce21e2c0eb112, type: 3}
