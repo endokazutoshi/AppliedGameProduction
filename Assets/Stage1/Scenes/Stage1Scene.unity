@@ -181,6 +181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5528061173531863714, guid: d13fc5542ec55e841a75e669beb1031a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8767061467782475957, guid: d13fc5542ec55e841a75e669beb1031a, type: 3}
       propertyPath: m_Name
       value: "\u306F\u3063\u308A\u30FC\u30FC\u3093"
@@ -371,6 +375,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &792292304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4931338438274719726, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
+  m_PrefabInstance: {fileID: 5485399469767141624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1137621521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,7 +650,7 @@ MonoBehaviour:
   _goalPrefabs:
   - {fileID: 384434184}
   _PIN: {fileID: 641368354640692434, guid: 75073e8c568e3a7419e1503c5787f36d, type: 3}
-  _deadPrefab: {fileID: 8767061467782475957, guid: d13fc5542ec55e841a75e669beb1031a, type: 3}
+  _deadPrefab: {fileID: 2146897608}
   _switchPrefabs:
   - {fileID: 520941382}
   - {fileID: 1666398955}
@@ -653,11 +662,11 @@ MonoBehaviour:
   _spawnPositionX: 20
   _spawnPositionY: 6
   _tileTypeToSpawn: 0
-  wallPrefab: {fileID: 4931338438274719726, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
+  wallPrefab: {fileID: 792292304}
   floorPrefab: {fileID: 6358039462078637500, guid: 90b3be83f8e65d14c9106e4aee637574, type: 3}
   goalPrefab: {fileID: 384434184}
   passWorldPrefab: {fileID: 97002077}
-  deadPrefab: {fileID: 2146897608}
+  deadPrefab: {fileID: 8767061467782475957, guid: d13fc5542ec55e841a75e669beb1031a, type: 3}
   switchPrefab: {fileID: 0}
   moveRandomPrefab: {fileID: 0}
   _length: 23
@@ -694,7 +703,7 @@ MonoBehaviour:
   inputPanel: {fileID: 1416694586}
   inputField: {fileID: 564796958}
   feedbackText: {fileID: 682611833}
-  answerPanel: 3814
+  answerPanel: 5814
 --- !u!1001 &1530350117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,7 +872,9 @@ MonoBehaviour:
   - {x: 4, y: 4}
   - {x: 10, y: 8}
   - {x: 1, y: 7}
-  LeverNewTileType: 0000000000000000000000000000000001000000
+  - {x: 10, y: 7}
+  - {x: 15, y: 4}
+  LeverNewTileType: 00000000000000000000000001000000010000000100000001000000
   LeverOriginalTileType: 
   leverOnPrefab: {fileID: 0}
   leverOffPrefab: {fileID: 0}
@@ -971,9 +982,25 @@ MonoBehaviour:
   initialPosition: {x: 13, y: 7}
   passwordPositionChange:
   - {x: 19, y: 2}
-  passwordNewTileType: 02000000
-  LeverPositionChange: []
-  LeverNewTileType: 
+  - {x: 1, y: 4}
+  passwordNewTileType: 0200000001000000
+  LeverPositionChange:
+  - {x: 12, y: 1}
+  - {x: 14, y: 1}
+  - {x: 13, y: 4}
+  - {x: 12, y: 4}
+  - {x: 12, y: 6}
+  - {x: 17, y: 1}
+  - {x: 19, y: 4}
+  - {x: 20, y: 5}
+  - {x: 20, y: 6}
+  - {x: 17, y: 8}
+  - {x: 16, y: 8}
+  - {x: 9, y: 1}
+  - {x: 9, y: 2}
+  - {x: 9, y: 3}
+  - {x: 9, y: 4}
+  LeverNewTileType: 010000000000000000000000010000000100000001000000000000000000000001000000010000000400000000000000000000000000000000000000
   LeverOriginalTileType: 
   leverOnPrefab: {fileID: 0}
   leverOffPrefab: {fileID: 0}
@@ -1930,11 +1957,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249178265083208890, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 7249178265083208890, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 7249178265083208890, guid: 2976d4af35bebe24da809dec33d4b4dc, type: 3}
       propertyPath: m_LocalScale.z
