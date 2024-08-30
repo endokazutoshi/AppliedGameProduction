@@ -3,9 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-namespace MyNameSpace
-{
-    public class FadeManager : MonoBehaviour
+    public class NextFadeManager : MonoBehaviour
     {
         private Image fadeImage;
 
@@ -32,7 +30,7 @@ namespace MyNameSpace
             yield return StartCoroutine(Color_FadeOut());
 
             // シーンをロード
-            SceneManager.LoadScene("StageSelectScene");
+            SceneManager.LoadScene("Stage2");
 
             // フェードインを開始
             yield return StartCoroutine(Color_FadeIn());
@@ -74,5 +72,3 @@ namespace MyNameSpace
             }
         }
     }
-
-}
