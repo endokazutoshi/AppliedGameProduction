@@ -7,20 +7,24 @@ namespace MyNameSpace
 {
     public class FadeManager : MonoBehaviour
     {
+        public string sceneName; //遷移先のシーン名
         private Image fadeImage;
+        public Button transitionButton; //ボタンの参照
 
         void Start()
         {
             // Imageコンポーネントを取得
             fadeImage = GetComponent<Image>();
+
+            if(transitionButton != null)
+            {
+                transitionButton.onClick.AddListener(OnTransitionButton);
+            }
         }
 
-        void Update()
+        void OnTransitionButton()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                StartCoroutine(StartFadeSequence());
-            }
+            StartCoroutine(StartFadeSequence());
         }
 
         IEnumerator StartFadeSequence()
@@ -32,7 +36,7 @@ namespace MyNameSpace
             yield return StartCoroutine(Color_FadeOut());
 
             // シーンをロード
-            SceneManager.LoadScene("StageSelectScene");
+            SceneManager.LoadScene(sceneName);
 
             // フェードインを開始
             yield return StartCoroutine(Color_FadeIn());
