@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &293721465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3482773882369192745, guid: 3021243585aee244b932d4db83cf634f, type: 3}
+  m_PrefabInstance: {fileID: 8453995655216411173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +303,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6732248190224744334, guid: 919c92fb1c4df8043bd1067e25f6ab03, type: 3}
   m_PrefabInstance: {fileID: 5483888748840945456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &775802983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266630487897110422, guid: 28fc6063255f32a49a320fc662734682, type: 3}
+  m_PrefabInstance: {fileID: 777906560130595231}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1137621521
 PrefabInstance:
@@ -601,19 +611,19 @@ MonoBehaviour:
   _PIN: {fileID: 0}
   _deadPrefab: {fileID: 733245836}
   _switchPrefabs: []
-  _leverPrefabOn: {fileID: 0}
-  _leverPrefabOff: {fileID: 0}
+  _leverPrefabOn: {fileID: 293721465}
+  _leverPrefabOff: {fileID: 775802983}
   _goalSceneTime: 0.5
   mapWidth: 25
   mapHeight: 12
   _spawnPositionX: 20
   _spawnPositionY: 6
   _tileTypeToSpawn: 0
-  wallPrefab: {fileID: 0}
-  floorPrefab: {fileID: 0}
+  wallPrefab: {fileID: 2627552174381062163, guid: d605837ac2a708541a80027af0f4de38, type: 3}
+  floorPrefab: {fileID: 2398122632424134872, guid: 02059c07c742268419844b1a9147f8f7, type: 3}
   goalPrefab: {fileID: 0}
   passWorldPrefab: {fileID: 0}
-  deadPrefab: {fileID: 733245836}
+  deadPrefab: {fileID: 6732248190224744334, guid: f93f38f575a6fbd43826ef3be82fd672, type: 3}
   switchPrefab: {fileID: 0}
   moveRandomPrefab: {fileID: 0}
   _length: 25
@@ -827,9 +837,14 @@ MonoBehaviour:
   initialPosition: {x: 20, y: 2}
   passwordPositionChange: []
   passwordNewTileType: 
-  LeverPositionChange: []
-  LeverNewTileType: 
-  LeverOriginalTileType: 
+  LeverPositionChange:
+  - {x: 15, y: 5}
+  - {x: 15, y: 6}
+  - {x: 14, y: 6}
+  - {x: 14, y: 4}
+  - {x: 15, y: 4}
+  LeverNewTileType: 0100000001000000010000000000000000000000
+  LeverOriginalTileType: 00000000000000000000000000000000
   leverOnPrefab: {fileID: 0}
   leverOffPrefab: {fileID: 0}
 --- !u!1001 &1825339272
