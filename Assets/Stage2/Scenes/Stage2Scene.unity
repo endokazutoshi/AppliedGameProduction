@@ -599,7 +599,7 @@ MonoBehaviour:
   _tilePrefab: {fileID: 1218755570}
   _goalPrefabs: []
   _PIN: {fileID: 0}
-  _deadPrefab: {fileID: 0}
+  _deadPrefab: {fileID: 733245836}
   _switchPrefabs: []
   _leverPrefabOn: {fileID: 0}
   _leverPrefabOff: {fileID: 0}
